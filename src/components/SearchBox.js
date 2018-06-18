@@ -3,11 +3,22 @@ import React, {Component} from "react";
 class SearchBox extends Component {
   constructor() {
     super();
+    this.state = {
+      searchTerm: ""
+
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  // add onChange
+  handleChange(e) {
+    this.setState({searchTerm: e.target.value})
+  };
+
   render() {
     return (
       <div id="search" className="Search">
-        <input 
+        <input onChange={this.handleChange}
           onKeyUp={
             (e) => {
               /* this is so th search will only be done on enter key */
